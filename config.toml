@@ -1,0 +1,92 @@
+#:schema  ./schema.json
+
+theme = "arrebol"
+
+[keys.normal]
+C-s = ":write"
+S-s = ":write"
+C-p = "command_palette"
+"C-/" = "toggle_comments"
+";" = "command_mode"
+esc = "keep_primary_selection"
+q = ":quit"
+c = "yank"
+C-m = ["move_prev_word_start","move_next_word_end"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-S-j = ["extend_to_line_bounds","yank", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-space = "command_palette"
+space = {  space = "hover" } 
+S-j = "goto_word"
+ret = ["add_newline_below", "move_line_down", "insert_mode"]
+S-ret = ["add_newline_above", "move_line_up", "insert_mode"]
+C-backspace = ["select_mode", "goto_line_start", "delete_selection"]
+
+[keys.insert]
+C-s = ":write"
+C-p = "command_palette"
+A-left = "move_prev_word_start"
+A-right = "move_next_word_start"
+C-m = ["move_prev_word_start","move_next_word_end"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-space = "command_palette"
+C-ret = ["add_newline_below", "move_line_down"]
+S-ret = ["add_newline_above", "move_line_up"]
+C-backspace = ["select_mode", "goto_line_start", "delete_selection", "insert_mode"]
+
+[keys.select]
+C-p = "command_palette"
+"C-/" = "toggle_block_comments"
+";"= "command_mode"
+q = ":quit"
+c = "yank"
+C-space = "command_palette"
+C-ret = ["delete_selection","add_newline_below", "move_line_down", "insert_mode"]
+S-ret = ["delete_selection","add_newline_above", "move_line_up", "insert_mode"]
+C-backspace = ["select_mode", "goto_line_start", "delete_selection"]
+
+[editor]
+cursorline = true
+auto-save = true
+true-color = true
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "hidden"
+select = "hidden"
+
+[editor.statusline]
+left = ["spacer", "spinner", "spacer", "version-control","spacer",  "file-name","position", "file-modification-indicator", "diagnostics" ]
+# center = ["spinner"]
+right = ["register", "selections", "file-encoding", "spacer", "read-only-indicator", "file-type", "position-percentage"]
+
+[editor.lsp]
+display-messages= true
+display-inlay-hints = true
+auto-signature-help = true
+enable = true
+
+[editor.indent-guides]
+render = false
+skip-levels = 2
+character = "▏"
+
+[editor.whitespace.characters]
+newline = "⏎"
+tab = "󰞘"
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
