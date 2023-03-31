@@ -1,0 +1,58 @@
+#:schema  ./schema.json
+
+theme = "arrebol"
+
+[keys.normal]
+C-s = ":write"
+C-p = "command_palette"
+"C-/" = "toggle_comments"
+";"= "command_mode"
+esc = "keep_primary_selection"
+q = ":quit"
+c = "yank"
+
+[keys.insert]
+C-p = "command_palette"
+"A-left" = "move_prev_word_start"
+"A-right" = "move_next_word_start"
+
+[keys.select]
+C-p = "command_palette"
+
+[editor]
+cursorline = true
+auto-save = true
+true-color = true
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.statusline]
+left = ["spacer", "spinner", "spacer", "version-control","spacer",  "file-name","position", "file-modification-indicator", "diagnostics" ]
+# center = ["spinner"]
+right = ["register", "selections", "file-encoding", "spacer", "read-only-indicator", "file-type", "position-percentage"]
+
+[editor.lsp]
+display-messages= true
+display-inlay-hints = true
+auto-signature-help = true
+enable = true
+
+[editor.indent-guides]
+render = false
+skip-levels = 2
+character = "▏"
+
+[editor.whitespace.characters]
+newline = "⏎"
+tab = "→"
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
