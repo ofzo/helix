@@ -1,0 +1,203 @@
+theme = "arrebol"
+
+[keys.normal]
+C-s = ":write"
+S-s = ":write"
+C-p = "command_palette"
+";" = "command_mode"
+esc = "keep_primary_selection"
+q = ":buffer-close"
+d = "delete_selection_noyank"
+S-q = ":quit"
+
+C-c = ["extend_to_line_bounds", "yank", "collapse_selection"]
+C-x = ["extend_to_line_bounds", "yank", "delete_selection"]
+C-v = "paste_after"
+c = "extend_line_above"
+C-m = ["move_prev_word_start", "move_next_word_end"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-S-j = ["extend_to_line_bounds", "yank", "paste_after"]
+C-k = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
+C-space = "goto_word"
+
+ret = ["add_newline_below", "move_line_down", "insert_mode"]
+S-ret = ["add_newline_above", "move_line_up", "insert_mode"]
+C-backspace = ["select_mode", "goto_line_start", "delete_selection"]
+S-x = ["extend_line_up", "extend_to_line_bounds"]
+"^" = "goto_line_start"
+"$" = "goto_line_end"
+C-A-left = "swap_view_left"
+C-A-right = "swap_view_right"
+A-left = "move_prev_word_start"
+A-right = "move_next_word_start"
+A-up = "swap_view_up"
+A-down = "swap_view_down"
+minus = "decrement"
+'+' = "increment"
+tab = "indent"
+S-tab = "unindent"
+'C-\' = ["split_selection_on_newline", "goto_line_start"]
+C-tab = "rotate_view"
+S-right = "goto_line_end"
+S-left = "goto_line_start"
+y = "yank_to_clipboard"
+
+[keys.normal.space]
+v = "vsplit_new"
+h = "hsplit_new"
+space = "hover"
+# e = ":show-directory"
+T = 'transpose_view'
+tab = 'rotate_view'
+m = "select_references_to_symbol_under_cursor"
+b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+
+[keys.normal."@"]
+r = "record_macro"
+p = "replay_macro"
+
+[keys.normal.m]
+f = 'goto_next_function'
+F = 'goto_prev_function'
+c = 'goto_next_class'
+C = 'goto_prev_class'
+p = 'goto_next_paragraph'
+P = 'goto_prev_paragraph'
+"space" = "select_references_to_symbol_under_cursor"
+
+[keys.insert]
+C-s = ":write"
+C-p = "command_palette"
+A-left = "move_prev_word_start"
+A-right = "move_next_word_start"
+C-m = ["move_prev_word_start", "move_next_word_end"]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
+C-space = "command_palette"
+C-ret = ["add_newline_below", "move_line_down"]
+S-ret = ["add_newline_above", "move_line_up"]
+C-backspace = [
+  "select_mode",
+  "goto_line_start",
+  "delete_selection",
+  "insert_mode",
+]
+S-right = "goto_line_end"
+S-left = "goto_line_start"
+C-c = ["extend_to_line_bounds", "yank", "collapse_selection"]
+C-x = ["extend_to_line_bounds", "yank", "delete_selection"]
+C-v = "paste_after"
+
+[keys.select]
+C-p = "command_palette"
+";" = "command_mode"
+C-space = "command_palette"
+C-ret = [
+  "delete_selection",
+  "add_newline_below",
+  "move_line_down",
+  "insert_mode",
+]
+S-ret = ["delete_selection", "add_newline_above", "move_line_up", "insert_mode"]
+C-backspace = ["select_mode", "goto_line_start", "delete_selection"]
+C-c = 'yank'
+C-x = ['yank', 'delete_selection']
+C-v = 'paste_after'
+y = ":clipboard-yank"
+
+[keys.select.space]
+v = "vsplit_new"
+h = "hsplit_new"
+
+[editor]
+cursorline = true
+true-color = true
+color-modes = true
+popup-border = "all"
+completion-replace = true
+completion-trigger-len = 1
+# indent-heuristic = "simple"
+shell = ["zsh", "-c"]
+middle-click-paste = false
+# quit-on-close-last-buffer = true
+commandline = true
+end-of-line-diagnostics = "hint"
+# rulers = [100, 120]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "hidden"
+select = "hidden"
+
+[editor.statusline]
+left = [
+  "spacer",
+  "version-control",
+  "spacer",
+  "file-relative-path",
+  "file-modification-indicator",
+  "position",
+]
+# center = ["spinner"]
+right = [
+  "spinner",
+  "spacer",
+  "diagnostics",
+  "register",
+  "selections",
+  "file-encoding",
+  "spacer",
+  "read-only-indicator",
+  "file-type",
+  "position-percentage",
+  "spacer",
+]
+
+[editor.lsp]
+enable = true
+display-messages = true
+display-inlay-hints = true
+auto-signature-help = true
+snippets = true
+goto-reference-include-declaration = true
+display-signature-help-docs = true
+max-inlay-hint-length = 20
+
+[editor.indent-guides]
+render = false
+# skip-levels = 2
+character = "▏"
+
+[editor.whitespace.characters]
+newline = "⏎"
+tab = "󰞘"
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+
+[editor.auto-save]
+focus-lost = true
+
+[editor.soft-wrap]
+enable = true

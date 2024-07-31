@@ -1,0 +1,461 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "theme": {
+      "type": "string",
+      "description": "Set helix's theme\nCreate a file with the name of your theme as the file name (i.e mytheme.toml) and place it in your themes directory (i.e ~/.config/helix/themes or %AppData%\\helix\\themes on Windows). The directory might have to be created beforehand.\n\n💡 The names \"default\" and \"base16_default\" are reserved for built-in themes and cannot be overridden by user-defined themes."
+    },
+    "keys": {
+      "type": "object",
+      "properties": {
+        "normal": {
+          "type": "object"
+        },
+        "insert": {
+          "type": "object"
+        },
+        "select": {
+          "type": "object"
+        }
+      }
+    },
+    "editor": {
+      "type": "object",
+      "properties": {
+        "scrolloff": {
+          "type": "integer",
+          "default": "5",
+          "description": "Number of lines of padding around the edge of the screen when scrolling"
+        },
+        "mouse": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable mouse mode"
+        },
+        "middle-click-paste": {
+          "type": "boolean",
+          "default": true,
+          "description": "Middle click paste support"
+        },
+        "scroll-lines": {
+          "type": "integer",
+          "default": 3,
+          "description": "Number of lines to scroll per scroll wheel step"
+        },
+        "shell": {
+          "type": "string",
+          "default": "Unix: [\"sh\", \"-c\"]\nWindows: [\"cmd\", \"/C\"]",
+          "description": "Shell to use when running external commands"
+        },
+        "line-number": {
+          "type": "string",
+          "default": "absolute",
+          "description": "Line number display: absolute simply shows each line's number, while relative shows the distance from the current line. When unfocused or in insert mode, relative will still show absolute line numbers"
+        },
+        "cursorline": {
+          "type": "boolean",
+          "default": false,
+          "description": "Highlight all lines with a cursor"
+        },
+        "cursorcolumn": {
+          "type": "boolean",
+          "default": false,
+          "description": "Highlight all columns with a cursor"
+        },
+        "gutters": {
+          "type": "array",
+          "default": "[\"diagnostics\", \"spacer\", \"line-numbers\", \"spacer\", \"diff\"]",
+          "description": "Gutters to display: Available are diagnostics and diff and line-numbers and spacer, note that diagnostics also includes other features like breakpoints, 1-width padding will be inserted if gutters is non-empty"
+        },
+        "auto-completion": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic pop up of auto-completion"
+        },
+        "auto-format": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic formatting on save"
+        },
+        "auto-save": {
+          "type": "object",
+          "default": false,
+          "description": "Enable automatic saving on the focus moving away from Helix. Requires focus event support from your terminal"
+        },
+        "idle-timeout": {
+          "type": "integer",
+          "default": 400,
+          "description": "Time in milliseconds since last keypress before idle timers trigger. Used for autocompletion, set to 0 for instant"
+        },
+        "preview-completion-insert": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to apply completion item instantly when selected"
+        },
+        "completion-trigger-len": {
+          "type": "integer",
+          "default": 2,
+          "description": "The min-length of word under cursor to trigger autocompletion"
+        },
+        "completion-replace": {
+          "type": "boolean",
+          "default": false,
+          "description": "Set to true to make completions always replace the entire word and not just the part before the cursor"
+        },
+        "auto-info": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to display info boxes"
+        },
+        "true-color": {
+          "type": "boolean",
+          "default": false,
+          "description": "Set to true to override automatic detection of terminal truecolor support in the event of a false negative"
+        },
+        "undercurl": {
+          "type": "boolean",
+          "default": false,
+          "description": "Set to true to override automatic detection of terminal undercurl support in the event of a false negative"
+        },
+        "rulers": {
+          "type": "array",
+          "default": "[]",
+          "description": "List of column positions at which to display the rulers. Can be overridden by language specific rulers in languages.toml file"
+        },
+        "bufferline": {
+          "type": "string",
+          "default": "never",
+          "enum": [
+            "never",
+            "always",
+            "multipe"
+          ],
+          "description": "Renders a line at the top of the editor displaying open buffers. Can be always, never or multiple (only shown if more than one buffer is in use)"
+        },
+        "color-modes": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to color the mode indicator with different colors depending on the mode itself"
+        },
+        "text-width": {
+          "type": "integer",
+          "default": 80,
+          "description": "Maximum line length. Used for the :reflow command and soft-wrapping if soft-wrap.wrap-at-text-width is set"
+        },
+        "workspace-lsp-roots": {
+          "type": "array",
+          "default": "[]",
+          "description": "Directories relative to the workspace root that are treated as LSP roots. Should only be set in .helix/config.toml"
+        },
+        "default-line-ending": {
+          "type": "string",
+          "default": "native",
+          "enum": [
+            "native",
+            "lf",
+            "crlf",
+            "ff",
+            "cr",
+            "nel"
+          ],
+          "description": "The line ending to use for new documents. Can be native, lf, crlf, ff, cr or nel. native uses the platform's native line ending (crlf on Windows, otherwise lf)."
+        },
+        "insert-final-newline": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to automatically insert a trailing line-ending on write if missing"
+        },
+        "cursor-shape": {
+          "type": "object",
+          "description": "Defines the shape of cursor in each mode. Valid values for these options are block, bar, underline, or hidden.",
+          "properties": {
+            "insert": {
+              "type": "string",
+              "description": "Cursor shape in insert mode",
+              "default": "block",
+              "enum": [
+                "block",
+                "bar",
+                "hidden"
+              ]
+            },
+            "normal": {
+              "type": "string",
+              "description": "Cursor shape in normal mode",
+              "default": "block",
+              "enum": [
+                "block",
+                "bar",
+                "hidden"
+              ]
+            },
+            "select": {
+              "type": "string",
+              "description": "Cursor shape in select mode",
+              "default": "block",
+              "enum": [
+                "block",
+                "bar",
+                "hidden"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "statusline": {
+          "type": "object",
+          "description": "Allows configuring the statusline at the bottom of the editor.\nThe configuration distinguishes between three areas of the status line:\n[ ... ... LEFT ... ... | ... ... ... ... CENTER ... ... ... ... | ... ... RIGHT ... ... ]",
+          "properties": {
+            "left": {
+              "type": "array",
+              "default": [
+                "mode",
+                "spinner",
+                "file-name",
+                "read-only-indicator",
+                "file-modification-indicator"
+              ],
+              "description": "A list of elements aligned to the left of the statusline"
+            },
+            "center": {
+              "type": "array",
+              "default": "[]",
+              "description": "A list of elements aligned to the middle of the statusline"
+            },
+            "right": {
+              "type": "array",
+              "default": [
+                "diagnostics",
+                "selections",
+                "register",
+                "position",
+                "file-encoding"
+              ],
+              "description": "A list of elements aligned to the right of the statusline"
+            },
+            "separator": {
+              "type": "string",
+              "default": "│",
+              "description": "The character used to separate elements in the statusline"
+            },
+            "mode.normal": {
+              "type": "string",
+              "default": "NOR",
+              "description": "The text shown in the mode element for normal mode"
+            },
+            "mode.insert": {
+              "type": "string",
+              "default": "INS",
+              "description": "The text shown in the mode element for insert mode"
+            },
+            "mode.select": {
+              "type": "string",
+              "default": "SEL",
+              "description": "The text shown in the mode element for select mode"
+            }
+          },
+          "additionalProperties": false
+        },
+        "lsp": {
+          "type": "object",
+          "description": "Language server protocol",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enables LSP integration. Setting to false will completely disable language servers regardless of language settings."
+            },
+            "display-messages": {
+              "type": "boolean",
+              "default": false,
+              "description": "Display LSP progress messages below statusline1"
+            },
+            "auto-signature-help": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enable automatic popup of signature help (parameter hints)"
+            },
+            "display-inlay-hints": {
+              "type": "boolean",
+              "default": false,
+              "description": "Display inlay hints2"
+            },
+            "display-signature-help-docs": {
+              "type": "boolean",
+              "default": true,
+              "description": "Display docs under signature help popup"
+            },
+            "snippets": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enables snippet completions. Requires a server restart (:lsp-restart) to take effect after :config-reload/:set."
+            },
+            "goto-reference-include-declaration": {
+              "type": "boolean",
+              "default": true,
+              "description": "Include declaration in the goto references popup."
+            }
+          },
+          "additionalProperties": false
+        },
+        "file-picker": {
+          "type": "object",
+          "properties": {
+            "hidden": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enables ignoring hidden files"
+            },
+            "follow-symlinks": {
+              "type": "boolean",
+              "default": true,
+              "description": "Follow symlinks instead of ignoring them"
+            },
+            "deduplicate-links": {
+              "type": "boolean",
+              "default": true,
+              "description": "Ignore symlinks that point at files already shown in the picker"
+            },
+            "parents": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enables reading ignore files from parent directories"
+            },
+            "ignore": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enables reading .ignore files"
+            },
+            "git-ignore": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enables reading .gitignore files"
+            },
+            "git-global": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enables reading global .gitignore, whose path is specified in git's config: core.excludefile option"
+            },
+            "git-exclude": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enables reading .git/info/exclude files"
+            },
+            "max-depth": {
+              "type": "string",
+              "default": "Defaults to None.",
+              "description": "Set with an integer value for maximum depth to recurse"
+            }
+          }
+        },
+        "search": {
+          "type": "object",
+          "properties": {
+            "smart-case": {
+              "type": "boolean",
+              "default": true,
+              "description": "Enable smart case regex searching (case-insensitive unless pattern contains upper case characters)"
+            },
+            "wrap-around": {
+              "type": "boolean",
+              "default": true,
+              "description": "Whether the search should wrap after depleting the matches"
+            }
+          }
+        },
+        "indent-guides": {
+          "type": "object",
+          "properties": {
+            "render": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether to render indent guides"
+            },
+            "character": {
+              "type": "string",
+              "default": "│",
+              "description": "Literal character to use for rendering the indent guide"
+            },
+            "skip-levels": {
+              "type": "integer",
+              "default": 0,
+              "description": "Number of indent levels to skip"
+            }
+          },
+          "additionalProperties": false
+        },
+        "whitespace": {
+          "type": "object",
+          "properties": {
+            "render": {
+              "type": "object",
+              "default": "none",
+              "description": "Whether to render whitespace. May either be \"all\" or \"none\", or a table with sub-keys space, nbsp, tab, and newline",
+              "properties": {
+                "tab": {
+                  "type": "string"
+                },
+                "newline": {
+                  "type": "string"
+                },
+                "space": {
+                  "type": "string"
+                },
+                "nbsp": {
+                  "type": "string"
+                },
+                "tabpad": {
+                  "type": "string"
+                }
+              }
+            },
+            "characters": {
+              "type": "object",
+              "default": "See example below",
+              "description": "Literal characters to use when rendering whitespace. Sub-keys may be any of tab, space, nbsp, newline or tabpad",
+              "properties": {
+                "tab": {
+                  "type": "string"
+                },
+                "newline": {
+                  "type": "string"
+                },
+                "space": {
+                  "type": "string"
+                },
+                "nbsp": {
+                  "type": "string"
+                },
+                "tabpad": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "auto-pairs": {
+          "type": "object"
+        },
+        "smart-tab": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "default": true,
+              "description": "If set to true, then when the cursor is in a position with non-whitespace to its left, instead of inserting a tab, it will run move_parent_node_end. If there is only whitespace to the left, then it inserts a tab as normal. With the default bindings, to explicitly insert a tab character, press Shift-tab."
+            },
+            "supersede-menu": {
+              "type": "boolean",
+              "default": false,
+              "description": "Normally, when a menu is on screen, such as when auto complete is triggered, the tab key is bound to cycling through the items. This means when menus are on screen, one cannot use the tab key to trigger the smart-tab command. If this option is set to true, the smart-tab command always takes precedence, which means one cannot use the tab key to cycle through menu items. One of the other bindings must be used instead, such as arrow keys or C-n/C-p."
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
