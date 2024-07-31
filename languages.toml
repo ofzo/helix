@@ -1,0 +1,69 @@
+# Language support configuration.
+# See the languages documentation: https://docs.helix-editor.com/master/languages.html
+
+[language-server]
+emmet-lsp = { command = "emmet-language-server", args = ["--stdio"] }
+
+[[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+
+[[language]]
+name = "javascript"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+formatter = { command = 'prettier', args = ["--parser", "javascript"] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+formatter = { command = 'prettier', args = ["--parser", "javescript"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+
+[[language]]
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+
+[[language]]
+name = "less"
+scope = "source.less"
+injection-regex = "less"
+file-types = ["less"]
+block-comment-tokens = { start = "/*", end = "*/" }
+comment-token = "//"
+language-servers = ["vscode-css-language-server"]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+formatter = { command = 'prettier', args = ["--parser", "less"] }
+
+[[grammar]]
+name = "less"
+source = { git = "git@github.com:rhino1998/tree-sitter-less", rev = "2bd739e106a3485bca210cf7b6d25ba09fd10dff" }
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "superhtml", "emmet-lsp"]
+formatter = { command = 'prettier', args = ["--parser", "html"] }
