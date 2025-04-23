@@ -201,3 +201,17 @@ focus-lost = true
 
 [editor.soft-wrap]
 enable = true
+
+
+[icons.vcs]
+enabled = true
+icon = "⌬"
+
+[icons.mime]
+enabled = true
+directory = "🖿"
+rust = "🦀"
+python = "🐍"
+
+[icons.diagnostic]
+warn = "▲"
