@@ -12,7 +12,7 @@ S-q = ":quit"
 
 C-c = ["extend_to_line_bounds", "yank", "collapse_selection"]
 C-x = ["extend_to_line_bounds", "yank", "delete_selection"]
-C-v = "paste_after"
+C-v = "paste_clipboard_after"
 c = "extend_line_above"
 C-m = ["move_prev_word_start", "move_next_word_end"]
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
@@ -46,20 +46,21 @@ C-tab = "rotate_view"
 S-right = "goto_line_end"
 S-left = "goto_line_start"
 y = "yank_to_clipboard"
+p = "paste_clipboard_after"
 
 [keys.normal.space]
 v = "vsplit_new"
 h = "hsplit_new"
 space = "hover"
-# e = ":show-directory"
 T = 'transpose_view'
 tab = 'rotate_view'
 m = "select_references_to_symbol_under_cursor"
 b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+z = ":echo %sh{echo '%{buffer_name}:%{cursor_line}' | pbcopy}"
 
 [keys.normal."@"]
-r = "record_macro"
-p = "replay_macro"
+'@' = "record_macro"
+'#' = "replay_macro"
 
 [keys.normal.m]
 f = 'goto_next_function'
@@ -68,7 +69,15 @@ c = 'goto_next_class'
 C = 'goto_prev_class'
 p = 'goto_next_paragraph'
 P = 'goto_prev_paragraph'
+"/" = "goto_next_comment"
+"\\" = "goto_prev_comment"
+"t" ="goto_next_test"
+"T" = "goto_prev_test"
 "space" = "select_references_to_symbol_under_cursor"
+
+[keys.normal.g]
+"[" = "goto_prev_change"
+"]" = "goto_next_change"
 
 [keys.insert]
 C-s = ":write"
@@ -123,14 +132,15 @@ h = "hsplit_new"
 cursorline = true
 true-color = true
 color-modes = true
-popup-border = "all"
+popup-border = "none"
 completion-replace = true
 completion-trigger-len = 1
+# default-yank-register= "+"
 # indent-heuristic = "simple"
 shell = ["zsh", "-c"]
 middle-click-paste = false
 # quit-on-close-last-buffer = true
-commandline = true
+# commandline = true
 end-of-line-diagnostics = "hint"
 # rulers = [100, 120]
 
@@ -201,3 +211,17 @@ focus-lost = true
 
 [editor.soft-wrap]
 enable = true
+
+[icons.vcs]
+enabled = true
+icon = "⌬"
+
+[icons.mime]
+enabled = true
+directory = ""
+
+[icons.diagnostic]
+warn = ""
+error = ""
+hint = ""
+info = ""

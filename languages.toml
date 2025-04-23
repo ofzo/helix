@@ -14,6 +14,7 @@ language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-server",
 ]
+roots = [ "package.json" , "tsconfig.json"]
 formatter = { command = 'prettier', args = ["--parser", "javascript"] }
 auto-format = true
 
@@ -23,6 +24,7 @@ language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-server",
 ]
+roots = [ "package.json" , "tsconfig.json"]
 formatter = { command = 'prettier', args = ["--parser", "javescript"] }
 auto-format = true
 
@@ -32,6 +34,7 @@ language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-server",
 ]
+roots = [ "package.json" , "tsconfig.json"]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
@@ -41,6 +44,7 @@ language-servers = [
   "typescript-language-server",
   "vscode-eslint-language-server",
 ]
+roots = [ "package.json" , "tsconfig.json"]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 
 [[language]]

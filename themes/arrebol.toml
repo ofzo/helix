@@ -84,12 +84,12 @@
 "ui.virtual.whitespace" = { fg = "gray50" }
 "ui.window" = { fg = "gray200" }
 
-# "ui.popup" = { bg = "red600" }
+"ui.popup" = { bg = "rose50" }
 "ui.popup.info" = { bg = "white" }
-"ui.highlight" = { bg = "sky300", modifiers = ["italic"] }
-# "ui.menu" = { bg = "gray100" }
-"ui.menu.selected" = { bg = "rose100", fg = "rose600" }
-# "ui.menu.scroll" = { fg = "gray400" }
+"ui.highlight" = { bg = "rose100" }
+"ui.menu" = { bg = "rose50", fg = "zinc700" }
+"ui.menu.selected" = { bg = "rose600", fg = "white"}
+"ui.menu.scroll" = { fg = "rose50", bg = "rose50" }
 
 "ui.picker.header" = { bg = "gray200" }
 "ui.picker.header.column" = { underline.style = "line" }
