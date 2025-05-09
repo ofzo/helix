@@ -220,4 +220,6 @@ directory = ""
 
 [icons.diagnostic]
 warn = ""
-
+error = ""
+hint = ""
+info = ""
